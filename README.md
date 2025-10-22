@@ -39,7 +39,7 @@ Este projeto é uma aplicação de Realidade Aumentada (RA) baseada em navegador
 1. **Hospede o projeto em HTTPS** (ex: [Netlify](https://app.netlify.com/drop), Vercel, GitHub Pages)
 2. Abra o link em um **dispositivo móvel com câmera**
 3. Permita o acesso à câmera
-4. Aponte para o **marcador Hiro** (você pode imprimir ou exibir [este marcador](https://raw.githubusercontent.com/AR-js-org/AR.js/master/aframe/examples/marker-training/examples/pattern-files/pattern-hiro.png))
+4. Aponte para o **marcador Hiro** (você pode imprimir ou exibir [este marcador](https://upload.wikimedia.org/wikipedia/commons/4/48/Hiro_marker_ARjs.png))
 5. Interaja com o modelo usando gestos
 
 ---
