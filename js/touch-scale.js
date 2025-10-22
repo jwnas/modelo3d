@@ -5,6 +5,7 @@ AFRAME.registerComponent('touch-scale', {
     let initialScale = el.object3D.scale.clone();
     let scaling = false;
 
+    // Zoom com dois dedos
     window.addEventListener('touchstart', function (e) {
       if (e.touches.length === 2) {
         initialDistance = getDistance(e.touches[0], e.touches[1]);
@@ -25,7 +26,11 @@ AFRAME.registerComponent('touch-scale', {
       }
     });
 
-    window.addEventListener('touchend', function () {
+    window.addEventListener('touchend', function (e) {
+      if (e.touches.length === 0 && e.changedTouches.length === 1) {
+        // Toque simples com um dedo
+        el.emit('tap');
+      }
       scaling = false;
     });
 
