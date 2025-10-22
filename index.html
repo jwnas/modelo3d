@@ -14,11 +14,8 @@
   <!-- Componente para animações de modelos GLTF -->
   <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
-  <!-- Gesture Detector -->
-  <script src="https://cdn.jsdelivr.net/gh/supermedium/superframe@master/components/gesture-detector/dist/gesture-detector.min.js"></script>
-
-  <!-- Super Hands -->
-  <script src="https://cdn.jsdelivr.net/npm/aframe-super-hands-component@4.0.5/dist/aframe-super-hands.min.js"></script>
+  <!-- Script personalizado para gestos de toque -->
+  <script src="js/touch-scale.js"></script>
 
   <style>
     body { margin: 0; overflow: hidden; }
@@ -33,27 +30,16 @@
   >
     <!-- Marcador Hiro -->
     <a-marker preset="hiro">
-      <!-- Modelo 3D com gestos -->
+      <!-- Modelo 3D com suporte a toque -->
       <a-entity
         id="avatar"
         gltf-model="modelos/Avatar.glb"
         scale="0.4 0.4 0.4"
         position="0 0 0.5"
-        gesture-detector
-        stretchable
-        draggable
-        rotatable
+        touch-scale
         animation__tap="property: rotation; to: 0 360 0; dur: 1000; easing: easeInOutQuad; startEvents: tap"
       ></a-entity>
     </a-marker>
-
-    <!-- Mão virtual para gestos -->
-    <a-entity
-      id="touch-controls"
-      cursor="rayOrigin: mouse"
-      raycaster="objects: [stretchable], [draggable], [rotatable]"
-      super-hands
-    ></a-entity>
 
     <!-- Câmera -->
     <a-entity camera></a-entity>
