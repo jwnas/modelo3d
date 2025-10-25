@@ -8,41 +8,39 @@
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 
-  <!-- AR.js para A-Frame -->
-  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
-
   <!-- Componente para animações de modelos GLTF -->
   <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
-  <!-- Script personalizado para gestos de toque -->
-  <script src="js/touch-scale.js"></script>
+  <!-- AR.js para A-Frame (rastreamento marker-based) -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-  <style>
-    body { margin: 0; overflow: hidden; }
-  </style>
+  <!-- Biblioteca de gestos -->
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 </head>
 
-<body>
-  <a-scene
-    vr-mode-ui="enabled: false"
-    embedded
-    arjs="sourceType: webcam; debugUIEnabled: false;"
-  >
+<body style="margin:0; overflow:hidden;">
+  <a-scene embedded arjs="sourceType: webcam;" gesture-detector>
+    <!-- Câmera -->
+    <a-entity camera cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .gesture-target"></a-entity>
+
     <!-- Marcador Hiro -->
     <a-marker preset="hiro">
-      <!-- Modelo 3D com suporte a toque -->
       <a-entity
         id="avatar"
+        class="gesture-target"
+        gesture-handler
         gltf-model="modelos/Avatar.glb"
-        scale="0.4 0.4 0.4"
-        position="0 0 0.5"
-        touch-scale
+        scale="0.7 0.7 0.7"
+        position="0 0 0"
         animation__tap="property: rotation; to: 0 360 0; dur: 1000; easing: easeInOutQuad; startEvents: tap"
       ></a-entity>
     </a-marker>
 
-    <!-- Câmera -->
-    <a-entity camera></a-entity>
+    <!-- Luz ambiente -->
+    <a-light type="ambient" color="#BBB"></a-light>
+
+    <!-- Luz direcional -->
+    <a-light type="directional" intensity="0.8" position="-1 4 5"></a-light>
   </a-scene>
 </body>
 </html>

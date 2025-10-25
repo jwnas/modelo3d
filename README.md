@@ -9,7 +9,7 @@ Este projeto é uma aplicação de Realidade Aumentada (RA) baseada em navegador
 - [A-Frame 1.4.2](https://aframe.io/)
 - [AR.js](https://github.com/AR-js-org/AR.js)
 - [aframe-extras](https://github.com/n5ro/aframe-extras) (para animações GLTF)
-- JavaScript puro (para gestos de toque personalizados)
+- [arjs-gestures](https://github.com/fcor/arjs-gestures) (para gestos de toque em RA)
 
 ---
 
@@ -19,8 +19,6 @@ Este projeto é uma aplicação de Realidade Aumentada (RA) baseada em navegador
     ├── index.html # Página principal com cena AR         
     ├── modelos/ 
     │ └── Avatar.glb # Modelo 3D no formato GLB 
-    ├── js/ 
-    │ └── touch-scale.js # Script para zoom com dois dedos
 
 ---
 
@@ -29,8 +27,10 @@ Este projeto é uma aplicação de Realidade Aumentada (RA) baseada em navegador
 - Ao acessar a página, a câmera do dispositivo é ativada.
 - Quando o marcador Hiro é detectado, o modelo 3D `Avatar.glb` é exibido.
 - O usuário pode:
-  - 🔁 Tocar no modelo para girá-lo 360°
-  - 🤏 Usar dois dedos para dar zoom (aumentar ou diminuir)
+  - 🔁 Tocar no modelo para girá-lo 360° (`animation__tap`)
+  - 🤏 Usar dois dedos para dar zoom
+  - ✋ Arrastar com um dedo para mover o modelo
+  - 🔄 Girar com dois dedos
 
 ---
 
@@ -47,7 +47,8 @@ Este projeto é uma aplicação de Realidade Aumentada (RA) baseada em navegador
 ## 🛠️ Personalização
 
 - Para trocar o modelo, substitua o arquivo `Avatar.glb` na pasta `modelos/`
-- Para adicionar mais interações (como arrastar ou rotação com dois dedos), edite o script `touch-scale.js`
+- Para ajustar os gestos, edite os atributos do componente `gesture-handler` no `index.html`
+- Para limitar zoom ou rotação, consulte a [documentação do arjs-gestures](https://github.com/fcor/arjs-gestures)
 
 ---
 
